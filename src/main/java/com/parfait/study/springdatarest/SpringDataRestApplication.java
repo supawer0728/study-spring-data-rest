@@ -1,6 +1,7 @@
 package com.parfait.study.springdatarest;
 
 import com.parfait.study.springdatarest.board.domain.Board;
+import com.parfait.study.springdatarest.board.domain.BoardEventHandler;
 import com.parfait.study.springdatarest.board.domain.BoardRepository;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,11 @@ public class SpringDataRestApplication implements ApplicationRunner {
     @Bean
     public AuditorAware<String> auditorAware() {
         return () -> Optional.of("testWriter");
+    }
+
+    @Bean
+    public BoardEventHandler boardEventHandler() {
+        return new BoardEventHandler();
     }
 
     @Override
